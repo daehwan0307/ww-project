@@ -1,11 +1,19 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import KakaoLoginButton from '../components/KakaoLoginButton'
 
 
 export default function Home() {
   return (
-    <div className="bg-red-300">
-      <h1>안녕하세요 </h1>
+    <div className='mt-16'>
+      <div className='flex flex-col items-center items-center'>
+      <Image   src="/favicon.ico" width={200} height={300}/>
+      </div>
+      
+      <div className='flex mt-8 flex-col items-center'>
+      <KakaoLoginButton/>
+      </div>
+    
     </div>
   )
 }
