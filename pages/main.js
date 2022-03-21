@@ -51,7 +51,7 @@ const main = () => {
           </div>
         </div>
       ))}
-      <button className="fixed bottom-24 right-5 bg-blue-400 rounded-full  shadow-xl p-4 text-white">
+      <button className="fixed bottom-24 right-5 bg-blue-400  hover:bg-blue-300 rounded-full  shadow-xl p-4 text-white">
         <svg
           className="h-6 w-6"
           xmlns="http://www.w3.org/2000/svg"
