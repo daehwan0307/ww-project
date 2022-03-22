@@ -17,7 +17,7 @@ const CommunityPostDetail  = () => {
       </div>
       <div>
         <div className="mt-2 px-4 text-gray-700">
-          <span className="text-orange-500 font-medium">Q.</span> What is the
+          <span className="text-bluw-500 font-medium">Q.</span> What is the
           best mandu restaurant?
         </div>
         <div className="flex px-4 space-x-5 mt-3 text-gray-700 py-2.5 border-t border-b-[2px]  w-full">
@@ -73,11 +73,11 @@ const CommunityPostDetail  = () => {
       </div>
       <div className="px-4">
         <textarea
-          className="mt-1 shadow-sm w-full focus:ring-orange-500 rounded-md border-gray-300 focus:border-orange-500 "
+          className="mt-1 shadow-sm w-full focus:ring-bluw-500 rounded-md border-gray-300 focus:border-bluw-500 "
           rows={4}
           placeholder="Answer this question!"
         />
-        <button className="mt-2 w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 focus:outline-none ">
+        <button className="mt-2 w-full bg-bluw-500 hover:bg-bluw-600 text-white py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium focus:ring-2 focus:ring-offset-2 focus:ring-bluw-500 focus:outline-none ">
           Reply
         </button>
       </div>

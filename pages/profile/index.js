@@ -15,7 +15,7 @@ const Profile = () => {
         </div>
         <div className="mt-10 flex justify-around">
           <Link href="profile/sold"><div className="flex flex-col items-center">
-            <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 text-white bg-blue-400 rounded-full flex items-center justify-center">
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -37,7 +37,7 @@ const Profile = () => {
           </div></Link>
           <Link href="profile/bought">
           <div className="flex flex-col items-center">
-            <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 text-white bg-blue-400 rounded-full flex items-center justify-center">
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -58,7 +58,7 @@ const Profile = () => {
             </span>
           </div></Link>
           <Link href="profile/loved"><div className="flex flex-col items-center">
-            <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 text-white bg-blue-400 rounded-full flex items-center justify-center">
               <svg
                 className="w-6 h-6"
                 fill="none"

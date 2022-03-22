@@ -28,7 +28,7 @@ const  ItemDetail = () => {
             motherfucker to get shot. You understand?
           </p>
           <div className="flex items-center justify-between space-x-2">
-            <button className="flex-1 bg-orange-500 text-white py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 font-medium hover:bg-orange-600 focus:ring-orange-500 ">
+            <button className="flex-1 bg-blue-500 text-white py-3 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 font-medium hover:bg-blue-600 focus:ring-blue-500 ">
               Talk to seller
             </button>
             <button className="p-3 rounded-md flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-500">
