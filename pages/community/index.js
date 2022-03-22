@@ -9,7 +9,7 @@ const Community  = () => {
             동네질문
             </span>
           <div className="mt-2 px-4 text-gray-700">
-            <span className="text-orange-500 font-medium">Q.</span> What is the
+            <span className="text-blue-500 font-medium">Q.</span> What is the
             best mandu restaurant?
           </div>
           <div className="mt-5 px-4 flex items-center justify-between w-full text-gray-500 font-medium text-xs">
@@ -54,7 +54,7 @@ const Community  = () => {
           </div>
         </div>
       ))}
-      <button className="fixed hover:bg-orange-500 transition-colors cursor-pointer  bottom-24 right-5 shadow-xl bg-orange-400 rounded-full p-4 text-white">
+      <button className="fixed hover:bg-blue-500 transition-colors cursor-pointer  bottom-24 right-5 shadow-xl bg-blue-400 rounded-full p-4 text-white">
       <svg
           className="w-6 h-6"
           fill="none"
