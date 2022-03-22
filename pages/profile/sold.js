@@ -61,4 +61,3 @@ const Sold = () => {
 };
 
 export default Sold;
-0 comments on commit 1cbf3c5
