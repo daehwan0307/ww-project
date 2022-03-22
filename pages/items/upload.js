@@ -1,7 +1,9 @@
 import { NextPage } from "next";
+import Layout from "../../components/layout";
 
 const Upload = () => {
-  return (
+  return ( 
+<Layout hasTabBar canGoBack title="hihi">
 <div className="px-4 py-10">
       <div>
         <div>
@@ -60,6 +62,7 @@ const Upload = () => {
         Upload product
       </button>
     </div>
+</Layout>
   );
 };
 

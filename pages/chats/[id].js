@@ -1,8 +1,10 @@
 import  { NextPage } from "next";
+import Layout from "../../components/layout";
 
 const ChatDetail = () => {
     return (
-        <div className="py-10 pb-16 px-4 space-y-4">
+        <Layout hasTabBar canGoBack title="채팅">
+                  <div className="py-10 pb-16 px-4 space-y-4">
           <div className="flex items-start space-x-2">
             <div className="w-8 h-8 rounded-full bg-slate-400" />
             <div className="w-1/2 text-sm text-gray-700 p-2 border border-gray-300 rounded-md">
@@ -161,6 +163,7 @@ const ChatDetail = () => {
             </div>
           </div>
           </div>
+        </Layout>
   );
 };
 export default ChatDetail;

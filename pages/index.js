@@ -61,7 +61,7 @@ export default function Home() {
           </div>
         </div>
       ))}
-      <button className="fixed hover:bg-orange-500 transition-colors cursor-pointer  bottom-24 right-5 shadow-xl bg-orange-400 rounded-full p-4 text-white">
+      <Link href="items/upload"><button className="fixed hover:bg-orange-500 transition-colors cursor-pointer  bottom-24 right-5 shadow-xl bg-orange-400 rounded-full p-4 text-white">
         <svg
           className="h-6 w-6"
           xmlns="http://www.w3.org/2000/svg"
@@ -77,9 +77,8 @@ export default function Home() {
             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
           />
         </svg>
-      </button>
-    </div>
-    </Link>
+      </button></Link>
+    </div></Link>
   </Layout>
 );
 };
