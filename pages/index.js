@@ -2,10 +2,11 @@ import Head from 'next/head'
 import Image from 'next/image'
 import KakaoLoginButton from '../components/KakaoLoginButton'
 import Layout from '../components/layout';
-
+import Link from 'next/link';
 export default function Home() {
   return (
     <Layout title="홈" hasTabBar>
+    <Link href="items/abc">
     <div className="flex flex-col space-y-5 devide-y">
       {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
         <div
@@ -78,6 +79,7 @@ export default function Home() {
         </svg>
       </button>
     </div>
+    </Link>
   </Layout>
 );
 };

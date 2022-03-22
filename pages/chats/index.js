@@ -1,11 +1,11 @@
 import  { NextPage } from "next";
 import Layout from "../../components/layout";
-
+import Link from "next/link";
 const Chats  = () => {
     return (
-      <Layout hasTabBar title="채팅">
-        <div className="divide-y-[1px] ">
-          {[1, 1, 1, 1, 1, 1, 1].map((_, i) => (
+      <Layout hasTabBar title="채팅" >
+        <Link href="/chats/abc"><div className="divide-y-[1px] ">
+          {[1, 1, 1,].map((_, i) => (
             <div
               key={i}
               className="flex px-4 cursor-pointer py-3 items-center space-x-3"
@@ -14,12 +14,12 @@ const Chats  = () => {
               <div>
                 <p className="text-gray-700">Steve Jebs</p>
                 <p className="text-sm  text-gray-500">
-                  See you tomorrow in the corner at 2pm!
+                    안녕하세요
                 </p>
               </div>
             </div>
           ))}
-        </div>
+        </div></Link>
       </Layout>
     );
   };

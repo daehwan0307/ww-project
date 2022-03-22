@@ -1,5 +1,6 @@
 import  { NextPage } from "next";
 import Layout from "../../components/layout";
+import Link from "next/link";
 
 const Profile = () => {
   return (
@@ -13,7 +14,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="mt-10 flex justify-around">
-          <div className="flex flex-col items-center">
+          <Link href="profile/sold"><div className="flex flex-col items-center">
             <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
               <svg
                 className="w-6 h-6"
@@ -33,7 +34,8 @@ const Profile = () => {
             <span className="text-sm mt-2 font-medium text-gray-700">
               판매내역
             </span>
-          </div>
+          </div></Link>
+          <Link href="profile/bought">
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
               <svg
@@ -54,8 +56,8 @@ const Profile = () => {
             <span className="text-sm mt-2 font-medium text-gray-700">
               구매내역
             </span>
-          </div>
-          <div className="flex flex-col items-center">
+          </div></Link>
+          <Link href="profile/loved"><div className="flex flex-col items-center">
             <div className="w-14 h-14 text-white bg-orange-400 rounded-full flex items-center justify-center">
               <svg
                 className="w-6 h-6"
@@ -75,7 +77,7 @@ const Profile = () => {
             <span className="text-sm mt-2 font-medium text-gray-700">
               관심목록
             </span>
-          </div>
+          </div></Link>
         </div>
         <div className="mt-12">
           <div className="flex space-x-4 items-center">
