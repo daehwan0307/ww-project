@@ -6,14 +6,14 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <Layout title="홈" hasTabBar>
-    <Link href="items/abc">
+    <Link href="items/abc" passHref>
     <div className="flex flex-col space-y-5 devide-y">
       {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
         <div
           key={i}
-          className="flex px-4 pt-5 cursor-pointer justify-between"
+          className="flex px-4 pt-5 cursor-pointer justify-between "
         >
-          <div className="flex space-x-4">
+          <div className="flex  space-x-4">
             <div className="w-20 h-20 bg-gray-400 rounded-md" />
             <div className="pt-2 flex flex-col">
               <h3 className="text-sm font-medium text-gray-900">
@@ -61,7 +61,7 @@ export default function Home() {
           </div>
         </div>
       ))}
-      <Link href="items/upload"><button className="fixed hover:bg-blue-500 transition-colors cursor-pointer  bottom-24 right-5 shadow-xl bg-blue-400 rounded-full p-4 text-white">
+      <Link href="items/upload" passHref><button className="fixed hover:bg-blue-500 transition-colors cursor-pointer  bottom-24 right-5 shadow-xl bg-blue-400 rounded-full p-4 text-white">
         <svg
           className="h-6 w-6"
           xmlns="http://www.w3.org/2000/svg"

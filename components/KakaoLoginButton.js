@@ -6,7 +6,7 @@ const KakaoLoginButton = () => {
     return (
             <button>
                 <a href={loginUri} rel="noopener noreferrer">
-                <img src="/kakao_login_medium_wide.png" />
+                <image src="/kakao_login_medium_wide.png" />
                 </a>
             </button>
     );

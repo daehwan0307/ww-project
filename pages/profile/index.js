@@ -10,11 +10,11 @@ const Profile = () => {
           <div className="w-16 h-16 bg-slate-500 rounded-full" />
           <div className="flex flex-col">
             <span className="font-medium text-gray-900">Steve Jebs</span>
-            <Link href="profile/edit"><span className="text-sm text-gray-700">Edit profile &rarr;</span></Link>
+            <Link href="profile/edit" passHref><span className="text-sm text-gray-700">Edit profile &rarr;</span></Link>
           </div>
         </div>
         <div className="mt-10 flex justify-around">
-          <Link href="profile/sold"><div className="flex flex-col items-center">
+          <Link href="profile/sold" passHref><div className="flex flex-col items-center">
             <div className="w-14 h-14 text-white bg-blue-400 rounded-full flex items-center justify-center">
               <svg
                 className="w-6 h-6"
@@ -35,7 +35,7 @@ const Profile = () => {
               판매내역
             </span>
           </div></Link>
-          <Link href="profile/bought">
+          <Link href="profile/bought" passHref>
           <div className="flex flex-col items-center">
             <div className="w-14 h-14 text-white bg-blue-400 rounded-full flex items-center justify-center">
               <svg
@@ -57,7 +57,7 @@ const Profile = () => {
               구매내역
             </span>
           </div></Link>
-          <Link href="profile/loved"><div className="flex flex-col items-center">
+          <Link href="profile/loved" passHref><div className="flex flex-col items-center">
             <div className="w-14 h-14 text-white bg-blue-400 rounded-full flex items-center justify-center">
               <svg
                 className="w-6 h-6"

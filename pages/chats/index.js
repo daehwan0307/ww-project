@@ -4,7 +4,7 @@ import Link from "next/link";
 const Chats  = () => {
     return (
       <Layout hasTabBar title="채팅" >
-        <Link href="/chats/abc"><div className="divide-y-[1px] ">
+        <Link href="/chats/abc " passHref><div className="divide-y-[1px] ">
           {[1, 1, 1,].map((_, i) => (
             <div
               key={i}
