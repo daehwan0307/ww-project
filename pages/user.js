@@ -1,8 +1,13 @@
+import React, {useState} from "react";
+
+
 const user =()=>{
+    const [count,setCount] = useState(0);
     return(
         <div>
-
-            <p1>hiih</p1>
+            <p>{count}</p>
+            <button onClick={()=>setCount(count-1)}>-</button>
+            <button onClick={()=>setCount(count+1)}>+</button>
         </div>
     )
         ;
