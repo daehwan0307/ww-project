@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import KakaoLoginButton from "../components/KakaoLoginButton";
 import Layout from "../components/layout";
 import Link from "next/link";
 import FloatingButton from "../components/floating-button";
