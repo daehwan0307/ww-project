@@ -3,7 +3,13 @@ import { cls } from "../libs/client/utils";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function Layout({ title, canGoBack, hasTabBar, children }) {
+export default function Layout({
+  title,
+  canGoBack,
+  hasTabBar,
+  children,
+  Home,
+}) {
   const router = useRouter();
   const onClick = () => {
     router.back();
@@ -12,7 +18,7 @@ export default function Layout({ title, canGoBack, hasTabBar, children }) {
     <div>
       <div
         className={cls(
-          !canGoBack ? "justify-center" : "",
+          !canGoBack ? "justify-between" : "",
           "bg-white w-full max-w-xl text-lg px-10 font-medium py-3 fixed text-gray-800 border-b top-0  flex items-center"
         )}
       >
@@ -35,6 +41,52 @@ export default function Layout({ title, canGoBack, hasTabBar, children }) {
           </button>
         ) : null}
         {title ? <span>{title}</span> : null}
+        {Home ? (
+          <div className="flex  flex-row space-x-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+              />
+            </svg>
+          </div>
+        ) : null}
       </div>
       <div className={cls("pt-12", hasTabBar ? "pb-24" : "")}>{children}</div>
       {hasTabBar ? (

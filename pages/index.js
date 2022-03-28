@@ -7,7 +7,7 @@ import Item from "../components/item";
 
 const Home = () => {
   return (
-    <Layout title="홈" hasTabBar>
+    <Layout title="홈" hasTabBar Home>
       <div className="flex flex-col space-y-5 divide-y">
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
           <Item
