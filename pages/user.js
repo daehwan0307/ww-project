@@ -1,16 +1,15 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-
-const user =()=>{
-    const [count,setCount] = useState(0);
-    return(
-        <div>
-            <p>{count}</p>
-            <button onClick={()=>setCount(count-1)}>-</button>
-            <button onClick={()=>setCount(count+1)}>+</button>
-        </div>
-    )
-        ;
-}
+const user = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <div>
+      <p>{count}</p>
+      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      <button></button>
+    </div>
+  );
+};
 
 export default user;
