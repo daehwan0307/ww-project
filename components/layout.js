@@ -1,15 +1,10 @@
 import React from "react";
-import { cls } from "../libs/utils";
+import { cls } from "../libs/client/utils";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function Layout({
-  title,
-  canGoBack,
-  hasTabBar,
-  children,
-}) {
-    const router = useRouter();
+export default function Layout({ title, canGoBack, hasTabBar, children }) {
+  const router = useRouter();
   const onClick = () => {
     router.back();
   };

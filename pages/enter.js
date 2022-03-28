@@ -1,46 +1,36 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { cls } from "../libs/utils";
+import { cls } from "../libs/client/utils";
 import Input from "../components/input";
 import Button from "../components/button";
+import useMutation from "../libs/client/useMutation";
 
 const Enter = () => {
+  const [enter, { loading, data, error }] = useMutation("/api/users/enter");
+  const [submitting, setSubmitting] = useState(false);
   const { register, handleSubmit, reset } = useForm();
-
   const [method, setMethod] = useState("email");
 
   const onEmailClick = () => {
     reset();
-
     setMethod("email");
   };
-
   const onPhoneClick = () => {
     reset();
-
     setMethod("phone");
   };
-
-  const onValid = (data) => {
-    setSubmitting(true);
-    fetch("/api/users/enter", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then(() => {
-      setSubmitting(false);
-    });
+  const onValid = (validForm) => {
+    if (loading) return;
+    enter(validForm);
   };
 
   return (
     <div className="mt-16 px-4">
-      <h3 className="text-3xl font-bold text-center">Enter to WinWin</h3>
+      <h3 className="text-3xl font-bold text-center">Enter to Carrot</h3>
       <div className="mt-12">
         <div className="flex flex-col items-center">
           <h5 className="text-sm text-gray-500 font-medium">Enter using:</h5>
-          <div className="grid  border-b  w-full mt-8 grid-cols-2 ">
+          <div className="grid border-b  w-full mt-8 grid-cols-2 ">
             <button
               className={cls(
                 "pb-4 font-medium text-sm border-b-2",
@@ -65,7 +55,6 @@ const Enter = () => {
             </button>
           </div>
         </div>
-
         <form
           onSubmit={handleSubmit(onValid)}
           className="flex flex-col mt-8 space-y-4"
@@ -81,7 +70,6 @@ const Enter = () => {
               required
             />
           ) : null}
-
           {method === "phone" ? (
             <Input
               register={register("phone")}
@@ -92,9 +80,11 @@ const Enter = () => {
               required
             />
           ) : null}
-          {method === "email" ? <Button text={"Get login link"} /> : null}
+          {method === "email" ? (
+            <Button text={loading ? "Loading" : "Get login link"} />
+          ) : null}
           {method === "phone" ? (
-            <Button text={submitting ? "Loading" : "Get one-time password"} />
+            <Button text={loading ? "Loading" : "Get one-time password"} />
           ) : null}
         </form>
 
