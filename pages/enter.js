@@ -26,7 +26,7 @@ const Enter = () => {
 
   return (
     <div className="mt-16 px-4">
-      <h3 className="text-3xl font-bold text-center">Enter to Carrot</h3>
+      <h3 className="text-3xl font-bold text-center">Enter to WinWin</h3>
       <div className="mt-12">
         <div className="flex flex-col items-center">
           <h5 className="text-sm text-gray-500 font-medium">Enter using:</h5>
@@ -35,7 +35,7 @@ const Enter = () => {
               className={cls(
                 "pb-4 font-medium text-sm border-b-2",
                 method === "email"
-                  ? " border-orange-500 text-orange-400"
+                  ? " border-blue-500 text-blue-400"
                   : "border-transparent hover:text-gray-400 text-gray-500"
               )}
               onClick={onEmailClick}
@@ -46,7 +46,7 @@ const Enter = () => {
               className={cls(
                 "pb-4 font-medium text-sm border-b-2",
                 method === "phone"
-                  ? " border-orange-500 text-orange-400"
+                  ? " border-blue-500 text-blue-400"
                   : "border-transparent hover:text-gray-400 text-gray-500"
               )}
               onClick={onPhoneClick}
