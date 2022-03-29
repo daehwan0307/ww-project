@@ -13,7 +13,7 @@ const Home = () => {
           <Item
             id={i}
             key={i}
-            title="iPhone 14"
+            title="이선명"
             price={99}
             comments={1}
             hearts={1}
