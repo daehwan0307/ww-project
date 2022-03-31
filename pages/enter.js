@@ -28,6 +28,7 @@ const Enter = () => {
     if (tokenLoading) return;
     confirmToken(validForm);
   };
+  console.log(loading);
   return (
     <div className="mt-16 px-4">
       <h3 className="text-3xl font-bold text-center">Enter to WinWin</h3>
