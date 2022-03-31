@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Button from "../components/button";
 import Input from "../components/input";
 import useMutation from "../libs/client/useMutation";
 import { cls } from "../libs/client/utils";
+import { useRouter } from "next/router";
+
 const Enter = () => {
   const [enter, { loading, data, error }] = useMutation("/api/users/enter");
   const [confirmToken, { loading: tokenLoading, data: tokenData }] =
@@ -28,7 +30,12 @@ const Enter = () => {
     if (tokenLoading) return;
     confirmToken(validForm);
   };
-  console.log(loading);
+  const router = useRouter();
+  useEffect(() => {
+    if (tokenData?.ok) {
+      router.push("/");
+    }
+  }, [tokenData, router]);
   return (
     <div className="mt-16 px-4">
       <h3 className="text-3xl font-bold text-center">Enter to WinWin</h3>
