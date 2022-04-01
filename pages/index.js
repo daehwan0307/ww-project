@@ -4,10 +4,15 @@ import Layout from "../components/layout";
 import Link from "next/link";
 import FloatingButton from "../components/floating-button";
 import Item from "../components/item";
+import useUser from "../libs/client/useUser";
 
 const Home = () => {
+  const user = useUser();
   return (
     <Layout title="홈" hasTabBar Home>
+      <Head>
+        <title>Home</title>
+      </Head>
       <div className="flex flex-col space-y-5 divide-y">
         {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
           <Item
