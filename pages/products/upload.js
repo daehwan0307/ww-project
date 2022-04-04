@@ -19,7 +19,7 @@ const Upload = () => {
   };
   useEffect(() => {
     if (data?.ok) {
-      router.push(`/products/${data.product.id}`);
+      router.replace(`/products/${data.product.id}`);
     }
   }, [data, router]);
   return (

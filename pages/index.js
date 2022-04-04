@@ -5,21 +5,24 @@ import Link from "next/link";
 import FloatingButton from "../components/floating-button";
 import Item from "../components/item";
 import useUser from "../libs/client/useUser";
+import useSWR from "swr";
+import { Product } from "@prisma/client";
 
 const Home = () => {
   const user = useUser();
+  const { data } = useSWR("/api/products");
   return (
     <Layout title="홈" hasTabBar Home>
       <Head>
         <title>Home</title>
       </Head>
       <div className="flex flex-col space-y-5 divide-y">
-        {[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map((_, i) => (
+        {data?.products?.map((product) => (
           <Item
-            id={i}
-            key={i}
-            title="이선명"
-            price={99}
+            id={product.id}
+            key={product.id}
+            title={product.name}
+            price={product.price}
             comments={1}
             hearts={1}
           />
