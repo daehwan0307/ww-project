@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 export default function withHandler({ methods, isPrivate = true, handler }) {
   return async function (req, res) {
-    if (req.method && !methods.includes(req.method)) {
+    if (req.methods && !methods.includes(req.methods)) {
       return res.status(405).end();
     }
     if (isPrivate && !req.session.user) {
