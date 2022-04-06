@@ -1,13 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import withHandler, { ResponseType } from "../../../libs/server/withHandler";
+import withHandler, { ResponseType } from "../../../../libs/server/withHandler";
 
-import client from "../../../libs/server/client";
+import client from "../../../../libs/server/client";
 
-import { withApiSession } from "../../../libs/server/withSession";
+import { withApiSession } from "../../../../libs/server/withSession";
 async function handler(req, res) {
   const {
     query: { id },
+    session: { user },
   } = req;
   const post = await client.post.findUnique({
     where: {
@@ -42,9 +43,21 @@ async function handler(req, res) {
       },
     },
   });
+  const isWondering = Boolean(
+    await client.wondering.findFirst({
+      where: {
+        postId: +id.toString(),
+        userId: user?.id,
+      },
+      select: {
+        id: true,
+      },
+    })
+  );
   res.json({
     ok: true,
     post,
+    isWondering,
   });
 }
 
