@@ -9,6 +9,7 @@ import useSWR from "swr";
 import { Product } from "@prisma/client";
 
 const Home = () => {
+  const favs = Number;
   const user = useUser();
   const { data } = useSWR("/api/products");
   return (
@@ -23,7 +24,7 @@ const Home = () => {
             key={product.id}
             title={product.name}
             price={product.price}
-            hearts={1}
+            hearts={product._count.favs}
           />
         ))}
         <FloatingButton href="/products/upload">
