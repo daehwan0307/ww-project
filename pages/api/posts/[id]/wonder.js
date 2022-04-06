@@ -1,50 +1,46 @@
 import { NextApiRequest, NextApiResponse } from "next";
-
 import withHandler, { ResponseType } from "../../../../libs/server/withHandler";
-
 import client from "../../../../libs/server/client";
-
 import { withApiSession } from "../../../../libs/server/withSession";
+
 async function handler(req, res) {
   const {
     query: { id },
+    session: { user },
   } = req;
-  const post = await client.post.findUnique({
+  const alreadyExists = await client.wondering.findFirst({
     where: {
-      id: +id.toString(),
+      userId: user?.id,
+      postId: +id.toString(),
     },
-    include: {
-      user: {
-        select: {
-          id: true,
-          name: true,
-          avatar: true,
-        },
+    select: {
+      id: true,
+    },
+  });
+  if (alreadyExists) {
+    await client.wondering.delete({
+      where: {
+        id: alreadyExists.id,
       },
-      answers: {
-        select: {
-          answer: true,
-          id: true,
-          user: {
-            select: {
-              id: true,
-              name: true,
-              avatar: true,
-            },
+    });
+  } else {
+    await client.wondering.create({
+      data: {
+        user: {
+          connect: {
+            id: user?.id,
+          },
+        },
+        post: {
+          connect: {
+            id: +id.toString(),
           },
         },
       },
-      _count: {
-        select: {
-          answers: true,
-          wondering: true,
-        },
-      },
-    },
-  });
+    });
+  }
   res.json({
     ok: true,
-    post,
   });
 }
 
