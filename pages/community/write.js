@@ -7,14 +7,16 @@ import useMutation from "../../libs/client/useMutation";
 import { useEffect } from "react";
 import { Post } from "@prisma/client";
 import { useRouter } from "next/router";
+import useCoords from "../../libs/client/useCoords";
 
 const Write = () => {
+  const { latitude, longitude } = useCoords();
   const router = useRouter();
   const { register, handleSubmit } = useForm();
   const [post, { loading, data }] = useMutation("/api/posts");
   const onValid = (data) => {
     if (loading) return;
-    post(data);
+    post({ ...data, latitude, longitude });
   };
   useEffect(() => {
     if (data && data.ok) {
