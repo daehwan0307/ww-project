@@ -1,6 +1,6 @@
-import { withApiSession } from "../../../libs/server/withSession";
-import withHandler from "../../../libs/server/withHandler";
-import client from "../../../libs/server/client";
+import { withApiSession } from "../../../../libs/server/withSession";
+import client from "../../../../libs/server/client";
+import withHandler from "../../../../libs/server/withHandler";
 
 async function handler(req, res) {
   const profile = await client.user.findUnique({
