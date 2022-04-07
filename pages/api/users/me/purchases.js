@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import withHandler, { ResponseType } from "@libs/server/withHandler";
-import client from "@libs/server/client";
-import { withApiSession } from "@libs/server/withSession";
+import { withApiSession } from "../../../../libs/server/withSession";
+import client from "../../../../libs/server/client";
+import withHandler from "../../../../libs/server/withHandler";
 
 async function handler(req, res) {
   const {
@@ -12,7 +12,15 @@ async function handler(req, res) {
       userId: user?.id,
     },
     include: {
-      product: true,
+      product: {
+        include: {
+          _count: {
+            select: {
+              favs: true,
+            },
+          },
+        },
+      },
     },
   });
   res.json({
