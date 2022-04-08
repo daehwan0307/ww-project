@@ -25,26 +25,25 @@ const StreamPage = () => {
     if (loading) return;
     reset();
     mutate(
-        (prev) =>
-          prev &&
-          ({
-            ...prev,
-            stream: {
-              ...prev.stream,
-              messages: [
-                ...prev.stream.messages,
-                {
-                  id: Date.now(),
-                  message: form.message,
-                  user: {
-                    ...user,
-                  },
+      (prev) =>
+        prev && {
+          ...prev,
+          stream: {
+            ...prev.stream,
+            messages: [
+              ...prev.stream.messages,
+              {
+                id: Date.now(),
+                message: form.message,
+                user: {
+                  ...user,
                 },
-              ],
-            },
-          } as any),
-        false
-      );
+              },
+            ],
+          },
+        },
+      false
+    );
     sendMessage(form);
   };
 
