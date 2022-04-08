@@ -3,12 +3,23 @@ import Message from "../../components/message";
 import useSWR from "swr";
 import { useRouter } from "next/router";
 import { Stream } from "@prisma/client";
+import { useForm } from "react-hook-form";
+import useMutation from "../../libs/client/useMutation";
 
 const StreamPage = () => {
   const router = useRouter();
+  const { register, handleSubmit, reset } = useForm();
   const { data } = useSWR(
     router.query.id ? `/api/streams/${router.query.id}` : null
   );
+  const [sendMessage, { loading, data: sendMessageData }] = useMutation(
+    `/api/streams/${router.query.id}/messages`
+  );
+  const onValid = (form) => {
+    if (loading) return;
+    reset();
+    sendMessage(form);
+  };
   return (
     <Layout canGoBack>
       <div className="py-10 px-4  space-y-4">
@@ -30,17 +41,21 @@ const StreamPage = () => {
             <Message message="미쳤어" />
           </div>
           <div className="fixed py-2 bg-white  bottom-0 inset-x-0">
-            <div className="flex relative max-w-md items-center  w-full mx-auto">
+            <form
+              onSubmit={handleSubmit(onValid)}
+              className="flex relative max-w-md items-center  w-full mx-auto"
+            >
               <input
                 type="text"
-                className="shadow-sm rounded-full w-full border-gray-300 focus:ring-orange-500 focus:outline-none pr-12 focus:border-orange-500"
+                {...register("message", { required: true })}
+                className="shadow-sm rounded-full w-full border-gray-300 focus:ring-blue-500 focus:outline-none pr-12 focus:border-blue-500"
               />
               <div className="absolute inset-y-0 flex py-1.5 pr-1.5 right-0">
-                <button className="flex focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 items-center bg-orange-500 rounded-full px-3 hover:bg-orange-600 text-sm text-white">
+                <button className="flex focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 items-center bg-blue-500 rounded-full px-3 hover:bg-blue-600 text-sm text-white">
                   &rarr;
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
