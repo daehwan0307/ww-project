@@ -14,7 +14,7 @@ const Profile = () => {
         <div className="flex items-center mt-4 space-x-3">
           {user?.avatar ? (
             <img
-              src={`https://imagedelivery.net/v1jWi3k6iPtjDeXfIvS6lQ/${user?.avatar}/public
+              src={`https://imagedelivery.net/v1jWi3k6iPtjDeXfIvS6lQ/${user?.avatar}/avatar
               `}
               className="w-16 h-16 bg-slate-500 rounded-full"
             />

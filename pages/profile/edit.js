@@ -23,7 +23,7 @@ const EditProfile = () => {
     if (user?.phone) setValue("phone", user.phone);
     if (user?.avatar)
       setAvatarPreview(
-        `https://imagedelivery.net/v1jWi3k6iPtjDeXfIvS6lQ/${user?.avatar}/public`
+        `https://imagedelivery.net/v1jWi3k6iPtjDeXfIvS6lQ/${user?.avatar}/avatar`
       );
   }, [user, setValue]);
   const [editProfile, { data, loading }] = useMutation(`/api/users/me`);
