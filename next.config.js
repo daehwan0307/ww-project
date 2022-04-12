@@ -4,6 +4,9 @@ const nextConfig = {
   swcMinify: false, // it should be false by default
   experimental: {
     reactRoot: true,
+    images: {
+      domains: ["imagedelivery.net"],
+    },
   },
 };
 
