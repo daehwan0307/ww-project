@@ -111,7 +111,13 @@ const ItemDetail = () => {
           <div className=" mt-6 grid grid-cols-2 gap-4">
             {data?.relatedProducts?.map((product) => (
               <div key={product.id}>
-                <div className="h-56 w-full mb-4 bg-slate-300" />
+                <div className="relative  pb-40">
+                  <Image
+                    src={`https://imagedelivery.net/v1jWi3k6iPtjDeXfIvS6lQ/${data?.product.image}/square`}
+                    className="bg-slate-300 object-cover"
+                    layout="fill"
+                  />
+                </div>
                 <h3 className="text-gray-700 -mb-1">{product.name}</h3>
                 <span className="text-sm font-medium text-gray-900">
                   ${product.price}
