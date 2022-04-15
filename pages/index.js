@@ -26,6 +26,8 @@ const Home = () => {
             title={product.name}
             price={product.price}
             hearts={product._count.favs}
+            description={product.description}
+            time={product.updatedAt}
           />
         ))}
         <FloatingButton href="/products/upload">
