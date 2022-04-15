@@ -12,6 +12,7 @@ const Home = () => {
   const favs = Number;
   const user = useUser();
   const { data } = useSWR("/api/products");
+
   return (
     <Layout title="홈" hasTabBar Home>
       <Head>

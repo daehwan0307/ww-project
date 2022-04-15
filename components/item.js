@@ -5,13 +5,17 @@ export default function Item({ title, price, hearts, id }) {
     <Link href={`/products/${id}`}>
       <a className="flex px-4 pt-5 cursor-pointer justify-between">
         <div className="flex space-x-4">
-          <div className="w-20 h-20 bg-gray-400 rounded-md" />
           <div className="pt-2 flex flex-col">
             <h3 className="text-sm font-medium text-gray-900">{title}</h3>
             <span className="font-medium mt-1 text-gray-900">${price}</span>
           </div>
         </div>
-        <div className="flex space-x-2 items-end justify-end">
+
+        <div className="flex space-x-2 items-end justify-end flex-col space-y-4">
+          <div>
+            <h3 className="text-sm font-medium text-gray-900 ">어학↔스포츠</h3>
+          </div>
+
           <div className="flex space-x-0.5 items-center text-sm  text-gray-600">
             <svg
               className="w-4 h-4"
@@ -28,8 +32,7 @@ export default function Item({ title, price, hearts, id }) {
               ></path>
             </svg>
             <span>{hearts}</span>
-          </div>
-          <div className="flex space-x-0.5 items-center text-sm  text-gray-600">
+
             <svg
               className="w-4 h-4"
               fill="none"
