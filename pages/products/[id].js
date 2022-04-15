@@ -28,14 +28,7 @@ const ItemDetail = () => {
     <Layout canGoBack>
       <div className="px-4  py-4">
         <div className="mb-8">
-          <div className="relative  pb-80">
-            <Image
-              src={`https://imagedelivery.net/v1jWi3k6iPtjDeXfIvS6lQ/${data?.product.image}/public`}
-              className="bg-slate-300 object-cover"
-              layout="fill"
-            />
-          </div>
-          <div className="flex cursor-pointer py-3 border-t border-b items-center space-x-3">
+          <div className="flex cursor-pointer py-3  items-center space-x-3">
             <Image
               width={48}
               height={48}
@@ -107,7 +100,9 @@ const ItemDetail = () => {
           </div>
         </div>
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">Similar items</h2>
+          <h2 className="text-xl font-bold text-gray-900">
+            {data?.product?.user?.name}님 이 재능은 어떠세요?
+          </h2>
           <div className=" mt-6 grid grid-cols-2 gap-4">
             {data?.relatedProducts?.map((product) => (
               <div key={product.id}>

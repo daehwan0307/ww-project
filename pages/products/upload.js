@@ -15,15 +15,7 @@ const Upload = () => {
   const [uploadProduct, { loading, data }] = useMutation("/api/products");
   const onValid = async ({ name, price, description }) => {
     if (loading) return;
-    if (photo && photo.length > 0) {
-      const { uploadURL } = await (await fetch(`/api/files`)).json();
-      const form = new FormData();
-      form.append("file", photo[0], name);
-      const {
-        result: { id },
-      } = await (await fetch(uploadURL, { method: "POST", body: form })).json();
-      uploadProduct({ name, price, description, photoId: id });
-    } else {
+    else {
       uploadProduct({ name, price, description });
     }
   };
@@ -32,14 +24,7 @@ const Upload = () => {
       router.replace(`/products/${data.product.id}`);
     }
   }, [data, router]);
-  const photo = watch("photo");
-  const [photoPreview, setPhotoPreview] = useState("");
-  useEffect(() => {
-    if (photo && photo.length > 0) {
-      const file = photo[0];
-      setPhotoPreview(URL.createObjectURL(file));
-    }
-  }, [photo]);
+
   return (
     <Layout canGoBack title="재능교환 글쓰기">
       <form className="p-4 space-y-4" onSubmit={handleSubmit(onValid)}>
