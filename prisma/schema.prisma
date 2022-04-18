@@ -32,7 +32,46 @@ model User {
   purchases       Purchase[]
   record          Record[]
     streams         Stream[]
-  messages        Message[]
+  messages        Message[]   
+  givenTalent    Talent[]      @relation(name: "givenTalent")
+  receivedTalent   Talent[]  @relation(name: "receivedTalent")
+}
+
+model Review {
+  id           Int      @id @default(autoincrement())
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  review       String   @db.MediumText
+  createdBy    User     @relation(name: "writtenReviews", fields: [createdById], references: [id], onDelete: Cascade)
+  createdById  Int
+  createdFor   User     @relation(name: "receivedReviews", fields: [createdForId], references: [id], onDelete: Cascade)
+  createdForId Int
+    score        Int      @default(1)
+}
+
+model Talent{
+id        Int  @id @default(autoincrement())
+language  String?
+Cooking String?
+sports String?
+finance String?
+music String?
+crafts String?
+Picture String?
+computer String?
+Art String?
+Culture String?
+fashion String?
+coding String?
+dataAnalysis String?
+Acting String?
+Marketing String?
+business String?
+etc String?
+receivedTalent   User @relation(name: "receivedTalent", fields: [receivedTalentId], references: [id], onDelete: Cascade)
+receivedTalentId  Int
+givenTalent  User  @relation(name: "givenTalent", fields: [givenTalentId], references: [id], onDelete: Cascade)
+givenTalentId Int
 }
 
 model Token {
@@ -92,17 +131,7 @@ model Wondering {
   postId    Int
 }
 
-model Review {
-  id           Int      @id @default(autoincrement())
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  review       String   @db.MediumText
-  createdBy    User     @relation(name: "writtenReviews", fields: [createdById], references: [id], onDelete: Cascade)
-  createdById  Int
-  createdFor   User     @relation(name: "receivedReviews", fields: [createdForId], references: [id], onDelete: Cascade)
-  createdForId Int
-    score        Int      @default(1)
-}
+
 
 model Sale {
   id        Int      @id @default(autoincrement())
