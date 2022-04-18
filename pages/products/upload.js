@@ -13,7 +13,13 @@ const Upload = () => {
   const router = useRouter();
   const { register, handleSubmit, watch } = useForm();
   const [uploadProduct, { loading, data }] = useMutation("/api/products");
-  const onValid = async ({ name, price, description }) => {
+  const onValid = async ({
+    name,
+    price,
+    description,
+    givenTalent,
+    receivedTalent,
+  }) => {
     if (loading) return;
     else {
       uploadProduct({ name, price, description });
@@ -35,6 +41,46 @@ const Upload = () => {
           name="name"
           type="text"
         />
+
+        <div>
+          <select className="rounded-md w-full">
+            <option value="" disabled selected>
+              가르쳐 줄 재능 선택
+            </option>
+            <option value="archi">어학</option>
+            <option value="mechanic">요리</option>
+            <option value="indust">스포츠</option>
+            <option value="elec">음악</option>
+            <option value="chemical">공예</option>
+            <option value="history">컴퓨터</option>
+            <option value="lang">교양</option>
+            <option value="philo">패션</option>
+            <option value="history">코딩</option>
+            <option value="lang">데이터 분석</option>
+            <option value="philo">연기/춤</option>
+            <option value="philo">기타</option>
+          </select>
+        </div>
+        <div>
+          <select className="rounded-md w-full">
+            <option value="" disabled selected>
+              배우고 싶은 재능 선택
+            </option>
+            <option value="archi">어학</option>
+            <option value="mechanic">요리</option>
+            <option value="indust">스포츠</option>
+            <option value="elec">음악</option>
+            <option value="chemical">공예</option>
+            <option value="history">컴퓨터</option>
+            <option value="lang">교양</option>
+            <option value="philo">패션</option>
+            <option value="history">코딩</option>
+            <option value="lang">데이터 분석</option>
+            <option value="philo">연기/춤</option>
+            <option value="philo">기타</option>
+          </select>
+        </div>
+
         <Input
           register={register("price", { required: true })}
           required

@@ -28,6 +28,8 @@ const Home = () => {
             hearts={product._count.favs}
             description={product.description}
             time={product.createdAt}
+            receivedTalent={product.receivedTalent}
+            givenTalent={product.givenTalent}
           />
         ))}
         <FloatingButton href="/products/upload">
