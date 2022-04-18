@@ -10,7 +10,7 @@ export default function Item({ title, price, hearts, id, description, time }) {
               {description}
             </span>
             <span className="font-medium mt-1 text-gray-900">
-              {location}/{time}
+              location/{time}
             </span>
           </div>
         </div>
