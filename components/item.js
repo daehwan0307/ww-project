@@ -3,9 +3,7 @@ import Link from "next/link";
 export default function Item({
   title,
   hearts,
-  name,
   id,
-  description,
   time,
   receivedTalent,
   givenTalent,
@@ -15,10 +13,13 @@ export default function Item({
       <a className="flex px-4 pt-5 cursor-pointer justify-between">
         <div className="flex space-x-4">
           <div className="pt-2 flex flex-col">
-            <span className="font-medium mt-1 text-gray-900  overflow-hidden">
+            <span className="text-lg font-mediumd mt-1 text-gray-900  overflow-hidden">
               {title}
             </span>
-            <span className="font-medium mt-1 text-gray-900">
+            <span
+              className="
+            text-xs font-thin mt-1 text-gray-900"
+            >
               location/{time}
             </span>
           </div>
