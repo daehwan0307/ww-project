@@ -35,15 +35,20 @@ const ItemDetail = () => {
               src={`https://imagedelivery.net/v1jWi3k6iPtjDeXfIvS6lQ/${data?.product?.user?.avatar}/avatar`}
               className="w-12 h-12 rounded-full bg-slate-300"
             />
-            <div>
-              <p className="text-sm font-medium text-gray-700">
-                {data?.product?.user?.name}
-              </p>
-              <Link href={`/users/profiles/${data?.product?.user?.id}`}>
-                <a className="text-xs font-medium text-gray-500">
-                  View profile &rarr;
-                </a>
-              </Link>
+            <div className="flex justify-between w-full">
+              <div>
+                <p className="text-sm font-medium text-gray-700">
+                  {data?.product?.user?.name}
+                </p>
+                <Link href={`/users/profiles/${data?.product?.user?.id}`}>
+                  <a className="text-xs font-medium text-gray-500">
+                    View profile &rarr;
+                  </a>
+                </Link>
+              </div>
+              <div className="justify-end">
+                {data?.product?.receivedTalent}↔{data?.product?.givenTalent}
+              </div>
             </div>
           </div>
           <div className="mt-5">
