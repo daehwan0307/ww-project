@@ -24,7 +24,6 @@ const Home = () => {
             id={product.id}
             key={product.id}
             title={product.name}
-            price={product.price}
             hearts={product._count.favs}
             description={product.description}
             time={product.createdAt}

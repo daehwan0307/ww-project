@@ -1,6 +1,14 @@
 import Link from "next/link";
 
-export default function Item({ title, price, hearts, id, description, time }) {
+export default function Item({
+  title,
+  hearts,
+  id,
+  description,
+  time,
+  receivedTalent,
+  givenTalent,
+}) {
   return (
     <Link href={`/products/${id}`}>
       <a className="flex px-4 pt-5 cursor-pointer justify-between">
@@ -17,7 +25,9 @@ export default function Item({ title, price, hearts, id, description, time }) {
 
         <div className="flex space-x-2 items-end justify-end flex-col space-y-4">
           <div>
-            <h3 className="text-sm font-medium text-gray-900 ">어학↔스포츠</h3>
+            <h3 className="text-sm font-medium text-gray-900 ">
+              {receivedTalent}↔{givenTalent}
+            </h3>
           </div>
 
           <div className="flex space-x-0.5 items-center text-sm  text-gray-600">

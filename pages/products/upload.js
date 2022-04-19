@@ -13,16 +13,19 @@ const Upload = () => {
   const router = useRouter();
   const { register, handleSubmit, watch } = useForm();
   const [uploadProduct, { loading, data }] = useMutation("/api/products");
+
+  function handleOnChange(e) {
+    data.product.givenTalent = e.value;
+  }
   const onValid = async ({
     name,
-    price,
     description,
     givenTalent,
     receivedTalent,
   }) => {
     if (loading) return;
     else {
-      uploadProduct({ name, price, description });
+      uploadProduct({ name, description, givenTalent, receivedTalent });
     }
   };
   useEffect(() => {
@@ -41,47 +44,20 @@ const Upload = () => {
           name="name"
           type="text"
         />
-
-        <div>
-          <h1 className="text-sm font-medium text-gray-700">가르쳐 줄 재능</h1>
-          <select className="rounded-md w-full appearance-none px-3 py-2 border border-gray-300  shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-            <option value="" disabled selected>
-              가르쳐 줄 재능 선택
-            </option>
-            <option value="archi">어학</option>
-            <option value="mechanic">요리</option>
-            <option value="indust">스포츠</option>
-            <option value="elec">음악</option>
-            <option value="chemical">공예</option>
-            <option value="history">컴퓨터</option>
-            <option value="lang">교양</option>
-            <option value="philo">패션</option>
-            <option value="history">코딩</option>
-            <option value="lang">데이터 분석</option>
-            <option value="philo">연기/춤</option>
-            <option value="philo">기타</option>
-          </select>
-        </div>
-        <div>
-          <h1 className="text-sm font-medium text-gray-700">가르쳐 줄 재능</h1>
-          <select className="rounded-md w-full appearance-none px-3 py-2 border border-gray-300  shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
-            <option value="" disabled selected>
-              배우고 싶은 재능 선택
-            </option>
-            <option value="archi">어학</option>
-            <option value="mechanic">요리</option>
-            <option value="indust">스포츠</option>
-            <option value="elec">음악</option>
-            <option value="chemical">공예</option>
-            <option value="history">컴퓨터</option>
-            <option value="lang">교양</option>
-            <option value="philo">패션</option>
-            <option value="history">코딩</option>
-            <option value="lang">데이터 분석</option>
-            <option value="philo">연기/춤</option>
-            <option value="philo">기타</option>
-          </select>
-        </div>
+        <Input
+          kind="givenSelect"
+          label="가르쳐 줄 재능"
+          required
+          name="givenTalent"
+          register={register("givenTalent", { require: true })}
+        />
+        <Input
+          kind="receivedSelect"
+          label="배우고 싶은 재능"
+          required
+          name="receivedTalent"
+          register={register("receivedTalent", { require: true })}
+        />
 
         <TextArea
           register={register("description", { required: true })}

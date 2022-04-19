@@ -10,7 +10,6 @@ export default function ProductList({ kind }) {
           id={record.product.id}
           key={record.id}
           title={record.product.name}
-          price={record.product.price}
           hearts={record.product._count.favs}
         />
       ))}

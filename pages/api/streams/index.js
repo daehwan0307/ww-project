@@ -6,13 +6,14 @@ import { withApiSession } from "../../../libs/server/withSession";
 async function handler(req, res) {
   const {
     session: { user },
-    body: { name, price, description },
+    body: { name, receivedTalent, givenTalent, description },
   } = req;
   if (req.method === "POST") {
     const stream = await client.stream.create({
       data: {
         name,
-        price,
+        receivedTalent,
+        givenTalent,
         description,
         user: {
           connect: {
