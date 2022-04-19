@@ -43,7 +43,8 @@ const Upload = () => {
         />
 
         <div>
-          <select className="rounded-md w-full">
+          <h1 className="text-gray-300">가르쳐 줄 재능</h1>
+          <select className="rounded-md w-full appearance-none px-3 py-2 border border-gray-300  shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
             <option value="" disabled selected>
               가르쳐 줄 재능 선택
             </option>
@@ -62,7 +63,8 @@ const Upload = () => {
           </select>
         </div>
         <div>
-          <select className="rounded-md w-full">
+          <h1>배울 재능</h1>
+          <select className="rounded-md w-full appearance-none px-3 py-2 border border-gray-300  shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
             <option value="" disabled selected>
               배우고 싶은 재능 선택
             </option>
@@ -81,14 +83,6 @@ const Upload = () => {
           </select>
         </div>
 
-        <Input
-          register={register("price", { required: true })}
-          required
-          label="Price"
-          name="price"
-          type="text"
-          kind="price"
-        />
         <TextArea
           register={register("description", { required: true })}
           name="description"
