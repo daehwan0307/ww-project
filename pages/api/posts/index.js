@@ -65,7 +65,6 @@ async function handler(req, res) {
     });
   }
 }
-
 export default withApiSession(
   withHandler({
     methods: ["GET", "POST"],
