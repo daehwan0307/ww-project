@@ -104,7 +104,7 @@ const ItemDetail = () => {
         </div>
         <div>
           <h2 className="text-xl font-bold text-gray-900">
-            {data?.product?.user?.name}님 이 재능은 어떠세요?
+            {user?.name}님 이 재능은 어떠세요?
           </h2>
           <div className=" mt-6 grid grid-cols-2 gap-4">
             {data?.relatedProducts?.map((product) => (
