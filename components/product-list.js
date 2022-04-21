@@ -11,6 +11,7 @@ export default function ProductList({ kind }) {
           key={record.id}
           title={record.product.name}
           hearts={record.product._count.favs}
+          comments={record.product.commentsCount}
         />
       ))}
     </>

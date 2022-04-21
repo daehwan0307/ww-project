@@ -19,7 +19,7 @@ export default function Layout({
       <div
         className={cls(
           !canGoBack ? "justify-between" : "",
-          "bg-white w-full max-w-xl text-lg px-10 font-medium py-3 fixed text-gray-800 border-b top-0  flex items-center"
+          "bg-white w-full  max-w-xl text-lg px-10 font-medium py-3 fixed text-gray-800 border-b top-0  flex items-center scrollbar-hide"
         )}
       >
         {canGoBack ? (
