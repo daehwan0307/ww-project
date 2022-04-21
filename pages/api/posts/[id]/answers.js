@@ -25,13 +25,9 @@ async function handler(req, res) {
       answer,
     },
   });
-  console.log(newAnswer);
-  res.json({
-    ok: true,
-    answer: newAnswer,
-  });
-}
 
+  return res.json({ ok: true, answer: newAnswer });
+}
 export default withApiSession(
   withHandler({
     methods: ["POST"],

@@ -1,4 +1,4 @@
-import { withIronSessionApiRoute } from "iron-session/next";
+import { withIronSessionApiRoute, withIronSessionSsr } from "iron-session/next";
 
 const cookieOptions = {
   cookieName: "winwinsession",
@@ -7,4 +7,8 @@ const cookieOptions = {
 
 export function withApiSession(fn) {
   return withIronSessionApiRoute(fn, cookieOptions);
+}
+
+export function withSsrSession(handler) {
+  return withIronSessionSsr(handler, cookieOptions);
 }

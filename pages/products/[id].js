@@ -9,6 +9,8 @@ import useMutation from "../../libs/client/useMutation";
 import { cls } from "../../libs/client/utils";
 import useUser from "../../libs/client/useUser";
 import Image from "next/image";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
 const ItemDetail = () => {
   const { user, isLoading } = useUser();
@@ -21,9 +23,22 @@ const ItemDetail = () => {
   const onFavClick = () => {
     if (!data) return;
     boundMutate((prev) => prev && { ...prev, isLiked: !prev.isLiked }, false);
-    // mutate("/api/users/me", (prev: any) => ({ ok: !prev.ok }), false);
+    //mutate(`/api/users/me`, (prev) => ({ ok: !prev.ok }), false);
     toggleFav({});
   };
+  const { handleSubmit } = useForm();
+  const [createChatRoom, { loading, data: chatData }] =
+    useMutation("/api/chats");
+  const onValid = async () => {
+    if (loading) return;
+    const productId = Number(router.query.id);
+    createChatRoom({ productId });
+  };
+  useEffect(() => {
+    if (chatData?.ok) {
+      router.push(`/chats/${chatData.chat.id}`);
+    }
+  }, [chatData, router]);
   return (
     <Layout canGoBack>
       <div className="px-4  py-4">
@@ -58,7 +73,9 @@ const ItemDetail = () => {
 
             <p className=" my-6 text-gray-700">{data?.product?.description}</p>
             <div className="flex items-center justify-between space-x-2">
-              <Button large text="Talk to seller" />
+              <form onSubmit={handleSubmit(onValid)}>
+                <Button large text="Talk to seller" />
+              </form>
               <button
                 onClick={onFavClick}
                 className={cls(
